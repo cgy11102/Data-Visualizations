@@ -9,7 +9,7 @@ Built to replace slow keyword-based ATS filtering with real-time AI ranking for 
 
 ## The Problem
 
-Traditional ATS systems filter candidates by keyword overlap — a resume missing the exact phrase "distributed systems" gets rejected even if the candidate built one. Pairwise uses semantic vector similarity to match meaning, not keywords. The result is a ranking system that surfaces the right people instead of the right keywords.
+Traditional ATS systems filter candidates by keyword overlap — a resume missing the exact phrase "distributed systems" gets rejected even if the candidate built one. Pairwise uses semantic vector similarity to match meaning rather than keywords. The result is a ranking system that surfaces the right people instead of the right keywords.
 
 ***
 
@@ -27,7 +27,7 @@ A full-stack AI matching application with a FastAPI backend and React frontend:
 
 ## Demo
 
-
+![Pairwise Demo](./pairwise-demo.png)
 
 ***
 
