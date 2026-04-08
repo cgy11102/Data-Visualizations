@@ -1,89 +1,55 @@
-# Pairwise — AI-Powered Resume Matching Engine
+# Data Analytics & Visualization Portfolio 📊
 
-Semantic resume-to-job matching using vector embeddings and LLM-generated fit evidence.
-Built to replace slow keyword-based ATS filtering with real-time AI ranking for technical roles.
+Welcome to my Tableau portfolio. This repository contains a curated selection of my data visualization projects, focusing on market trends, economic indicators, and business strategy. 
+Welcome to my portfolio. This repository contains the raw source files for my data visualization projects, focusing on market trends, economic indicators, and business strategy. 
 
-**Arizona State University — CIS 568: AI Systems | Group Project, Spring 2026**
+> **Note:** Because GitHub does not render `.twbx` files natively, I have hosted interactive versions of all dashboards on Tableau Public. Click the "Live Dashboard" links below to explore the data.
+> **Note:** The `.twbx` and `.twb` files in this repository require Tableau Desktop or the free [Tableau Reader](https://www.tableau.com/products/reader) to open and interact with the data locally. 
 
-***
+---
 
-## The Problem
+## 📂 Featured Projects
 
-Traditional ATS systems filter candidates by keyword overlap — a resume missing the exact phrase "distributed systems" gets rejected even if the candidate built one. Pairwise uses semantic vector similarity to match meaning rather than keywords. The result is a ranking system that surfaces the right people instead of the right keywords.
+### 1. Anthropic AI: Growth & Market Analysis
+An interactive dashboard analyzing the growth trajectory and market positioning of Anthropic within the competitive generative AI sector.
+* **Live Dashboard:** [Link to your Tableau Public]
+An analysis of the growth trajectory and market positioning of Anthropic within the competitive generative AI sector.
+* **Repository Folder:** [`/Anthropic-AI-Analysis`](./Anthropic-AI-Analysis)
+* **Key Skills:** Trend analysis, competitive benchmarking, advanced filtering.
+* **Key Skills Demonstrated:** Trend analysis, competitive benchmarking, and tracking emerging tech markets.
 
-***
+### 2. Kickstarter Campaign Success Predictors
+A deep dive into crowdfunding data to identify the key metrics (funding goals, duration, category) that correlate most strongly with a campaign's success or failure.
+* **Live Dashboard:** [Link to your Tableau Public]
+* **Repository Folder:** [`/Kickstarter-Market-Trends`](./Kickstarter-Market-Trends)
+* **Key Skills:** Profitability analysis, calculated fields, parameter controls.
+* **Key Skills Demonstrated:** Profitability analysis, e-commerce data handling, and startup success metrics.
 
-## What I Built
+### 3. U.S. Housing Affordability Index
+An economic analysis tracking housing affordability across different demographics and geographic regions, highlighting disparities and market shifts.
+* **Live Dashboard:** [Link to your Tableau Public]
+An economic analysis tracking housing affordability across different demographics and geographic regions to highlight market disparities and macroeconomic shifts.
+* **Repository Folder:** [`/US-Housing-Affordability`](./US-Housing-Affordability)
+* **Key Skills:** Geospatial mapping, time-series forecasting, macroeconomic data handling.
+* **Key Skills Demonstrated:** Geospatial data handling, time-series analysis, and macroeconomic forecasting.
 
-A full-stack AI matching application with a FastAPI backend and React frontend:
+### 4. API Provider Distribution & Usage
+A technical visualization mapping the distribution, reliability, and market share of various API service providers.
+* **Live Dashboard:** [Link to your Tableau Public]
+A technical mapping of the distribution, reliability, and market share of various API service providers across the software ecosystem.
+* **Repository Folder:** [`/API-Provider-Distribution`](./API-Provider-Distribution)
+* **Key Skills:** Network visualization, technical data structuring.
+* **Key Skills Demonstrated:** Technical data structuring and network visualization.
 
-- **Semantic matching engine** — sentence-transformers (all-MiniLM-L6-v2) encodes resumes and job descriptions into the same vector space, then cosine similarity ranks candidates by true meaning rather than keyword overlap
-- **LLM-generated fit evidence** — Groq (llama-3.3-70b) explains exactly why each candidate scored the way it did, giving recruiters 3 specific evidence bullets per match
-- **Bias mitigation layer** — demographic signals are stripped from the vector matching step before any score is computed; low-confidence matches are flagged for human review instead of auto-rejected
-- **ATS-ready JSON output** — match scores and fit evidence are returned as a typed Pydantic payload that plugs into Greenhouse, Lever, or Ashby without touching vendor code
-- **4-screen React UI** — Landing → Resume Upload → Job Requirements → Ranked Results dashboard
+---
 
-***
+## 🛠️ Technical Skills
+* **Tools:** Tableau Desktop, Tableau Public, [Add SQL/Python/Excel if applicable]
+* **Techniques:** Level of Detail (LOD) Expressions, Geospatial Mapping, Time-Series Forecasting, Interactive Dashboard Design, Data Storytelling
+* **Domains:** Tech/Startups, Macroeconomics, E-commerce
+## 🛠️ Technical Profile
+* **Core Tool:** Tableau Desktop
+* **Analytical Domains:** Tech/Startups, Macroeconomics, B2B Software, E-commerce
+* **Methodologies:** Time-Series Forecasting, Market Benchmarking, Demographic Cohort Analysis
 
-## Demo
-
-![Pairwise Demo](./pairwise-demo.png)
-
-***
-
-## Architecture
-
-| Folder / File | Purpose |
-|---|---|
-| backend/ | Python 3.11 + FastAPI application root |
-| backend/app/api/routes.py | POST /api/v1/match endpoint |
-| backend/app/models/schemas.py | Pydantic models: MatchPayload, FitEvidence, ATSTag |
-| backend/app/services/embeddings.py | sentence-transformers vector encoding |
-| backend/app/services/groq_client.py | Groq LLM integration for fit evidence generation |
-| backend/app/services/matcher.py | Core logic: embed, cosine rank, LLM explanation |
-| frontend/ | React 18 + Vite + Tailwind CSS |
-| frontend/src/pages/ | Landing, Upload, Requirements, Results screens |
-
-***
-
-## How to Run
-
-**Backend**
-
-    cd backend
-    pip install -r requirements.txt
-    uvicorn app.main:app --reload
-
-**Frontend**
-
-    cd frontend
-    npm install
-    npm run dev
-
-Open http://localhost:5173 in your browser. The API runs on http://localhost:8000.
-
-***
-
-## Tech Stack
-
-- Python 3.11, FastAPI, Pydantic v2
-- sentence-transformers — all-MiniLM-L6-v2
-- Groq API — llama-3.3-70b-versatile
-- React 18, Vite, Tailwind CSS
-- Cosine similarity for semantic ranking
-
-***
-
-## Key Design Decisions
-
-**Why sentence-transformers over OpenAI embeddings?** Local inference means zero API cost during development and no data leaving the environment before scoring.
-
-**Why Groq for evidence generation?** Groq's inference speed (llama-3.3-70b at ~800 tokens/sec) keeps the full matching pipeline under 2 seconds per request, which matters for real-time recruiter workflows.
-
-**Why flag low-confidence matches instead of filtering them?** Hard cutoffs hide edge cases. Flagging keeps the human in the loop for borderline candidates rather than silently auto-rejecting them.
-
-***
-
-## Status
-
-Active development — Spring 2026. Core matching engine and bias mitigation layer complete. ATS JSON integration in testing.
+---
